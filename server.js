@@ -5,13 +5,23 @@ const cors = require("cors");
 const app = express();
 const port = 8888;
 
-app.use(cors());
+// app.use(cors());
 // app.options("*", cors());
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+});
+
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json({ limit: "10mb" }));
 
 app.post("/api/v1/contact", (req, res) => {
   // res.header("Access-Control-Allow-Origin", "*");
+
   let data = req.body;
   console.log(data);
 
