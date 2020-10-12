@@ -1,12 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
-// const cors = require("cors");
+const cors = require("cors");
 const app = express();
 const port = 8888;
 
 app.use(cors());
-// app.options("*", cors());
+app.options("*", cors());
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json({ limit: "10mb" }));
 
