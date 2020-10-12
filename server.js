@@ -19,7 +19,12 @@ app.use(cors());
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json({ limit: "10mb" }));
 
-app.post("/api/v1/contact", (req, res, next) => {
+let corsOptions = {
+  origin: "https://panel-builder-app.herokuapp.com",
+  optionsSuccessStatus: 200,
+};
+
+app.post("/api/v1/contact", cors(corsOptions), (req, res, next) => {
   // res.header("Access-Control-Allow-Origin", "*");
   try {
     let data = req.body;
@@ -63,7 +68,7 @@ app.post("/api/v1/contact", (req, res, next) => {
       }
       smtpTransport.close();
     });
-    next();
+    // next();
   } catch (error) {
     console.log("ERROR: ", error);
   }
