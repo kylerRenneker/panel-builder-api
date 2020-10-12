@@ -18,27 +18,26 @@ app.post("/api/v1/contact", (req, res) => {
     port: 465,
     auth: {
       user: "krenneker16@gmail.com",
-      pass: process.env.GMAIL_PASS
+      pass: process.env.GMAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
 
   var mailOptions = {
-    from: data.email,
-    replyto: data.email,
-    to: "krenneker16@gmail.com",
+    from: "krenneker16@gmail.com",
+    // replyto: data.email,
+    to: `krenneker16@gmail.com`,
     subject: data.title,
-    html: `<p>${data.email}</p>
-      <p>${data.message}</p>`,
+    html: `<p>${data.message}</p>`,
     attachments: [
       {
         filename: data.title + ".jpg",
         contentType: "image/jpeg",
-        content: new Buffer.from(req.body.image.split("base64,")[1], "base64")
-      }
-    ]
+        content: new Buffer.from(req.body.image.split("base64,")[1], "base64"),
+      },
+    ],
   };
   smtpTransport.sendMail(mailOptions, (error, response) => {
     if (error) {
