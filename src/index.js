@@ -6,11 +6,12 @@ const app = express();
 const port = 8888;
 
 app.use(cors());
-app.options("*", cors());
+// app.options("*", cors());
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json({ limit: "10mb" }));
 
 app.post("/api/v1/contact", (req, res) => {
+  // res.header("Access-Control-Allow-Origin", "*");
   let data = req.body;
   console.log(data);
 
