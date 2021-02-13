@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8888;
 app.use(cors());
 
 app.listen(PORT, () => {
-  console.log(`We are live on port ${(PORT, process.env.GMAIL_PASS)}`);
+  console.log(`We are live on port ${PORT}`);
 });
 app.get("/", (req, res) => {
   res.send("Welcome to my api");
@@ -27,7 +27,7 @@ app.post("/api/v1/contact", (req, res, next) => {
 
     let smtpTransport = nodemailer.createTransport({
       service: "gmail",
-      port: 465,
+      // port: 465,
       auth: {
         user: "krenneker16@gmail.com",
         pass: process.env.GMAIL_PASS,
