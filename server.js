@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8888;
 app.use(cors());
 
 app.listen(PORT, () => {
-  console.log(`We are live on port ${PORT}`);
+  console.log(`We are live on port ${(PORT, process.env.GMAIL_PASS)}`);
 });
 app.get("/", (req, res) => {
   res.send("Welcome to my api");
