@@ -5,26 +5,19 @@ const cors = require("cors");
 const app = express();
 // const port = 8888;
 
-app.set("port", process.env.PORT);
+// app.set("port", process.env.PORT);
 
 app.use(cors());
-// app.options("*", cors());
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-// });
+app.listen(process.end.PORT, () => {
+  console.log(`We are live on port ${process.env.PORT}`);
+});
+app.get("/", (req, res) => {
+  res.send("Welcome to my api");
+});
 
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json({ limit: "10mb" }));
-
-// let corsOptions = {
-//   origin: "https://panel-builder-app.herokuapp.com",
-//   optionsSuccessStatus: 200,
-// };
 
 app.post("/api/v1/contact", (req, res, next) => {
   // res.header("Access-Control-Allow-Origin", "*");
@@ -74,11 +67,4 @@ app.post("/api/v1/contact", (req, res, next) => {
   } catch (error) {
     console.log("ERROR: ", error);
   }
-});
-
-app.listen(process.end.PORT, () => {
-  console.log(`We are live on port ${process.env.PORT}`);
-});
-app.get("/", (req, res) => {
-  res.send("Welcome to my api");
 });
