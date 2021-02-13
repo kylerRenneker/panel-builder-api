@@ -63,7 +63,7 @@ app.post("/api/v1/contact", (req, res, next) => {
       }
       smtpTransport.close();
     });
-    next();
+    // next();
   } catch (error) {
     console.log("ERROR: ", error);
   }
