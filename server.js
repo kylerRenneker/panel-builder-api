@@ -3,9 +3,9 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const app = express();
-const port = 8888;
+// const port = 8888;
 
-app.set("port", port);
+app.set("port", process.env.PORT);
 
 app.use(cors());
 // app.options("*", cors());
@@ -77,7 +77,7 @@ app.post("/api/v1/contact", (req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`We are live on port ${port}`);
+  console.log(`We are live on port ${process.env.PORT}`);
 });
 app.get("/", (req, res) => {
   res.send("Welcome to my api");
