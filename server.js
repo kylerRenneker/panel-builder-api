@@ -76,7 +76,7 @@ app.post("/api/v1/contact", (req, res, next) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(process.end.PORT, () => {
   console.log(`We are live on port ${process.env.PORT}`);
 });
 app.get("/", (req, res) => {
