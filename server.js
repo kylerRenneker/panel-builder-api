@@ -65,6 +65,6 @@ app.post("/api/v1/contact", (req, res, next) => {
     });
     // next();
   } catch (error) {
-    console.log("ERROR: ", error);
+    console.log("ERROR: ", error.message);
   }
 });
