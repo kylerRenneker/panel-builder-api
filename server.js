@@ -32,9 +32,9 @@ app.post("/api/v1/contact", (req, res, next) => {
         user: "krenneker16@gmail.com",
         pass: process.env.GMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+      // tls: {
+      //   rejectUnauthorized: false,
+      // },
     });
 
     var mailOptions = {
