@@ -5,6 +5,8 @@ const cors = require("cors");
 const app = express();
 const port = 8888;
 
+app.set("port", port);
+
 app.use(cors());
 // app.options("*", cors());
 
